@@ -38,4 +38,29 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	
+	// 테스트 결과를 CLI에서 보기 좋게 출력
+	testLogging {
+		events "passed", "skipped", "failed"
+		exceptionFormat "full"
+		showExceptions true
+		showCauses true
+		showStackTraces true
+		showStandardStreams false
+		
+		// 각 테스트 실행 시 상세 정보 출력
+		afterSuite { desc, result ->
+			if (!desc.parent) {
+				println "\n======================================"
+				println "Test Result: ${result.resultType}"
+				println "======================================"
+				println "Total tests   : ${result.testCount}"
+				println "Passed        : ${result.successfulTestCount}"
+				println "Failed        : ${result.failedTestCount}"
+				println "Skipped       : ${result.skippedTestCount}"
+				println "Success rate  : ${result.testCount > 0 ? (result.successfulTestCount / result.testCount * 100).round(2) : 0}%"
+				println "======================================\n"
+			}
+		}
+	}
 }
