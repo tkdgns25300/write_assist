@@ -15,4 +15,3 @@ public enum Tone {
     private final String value;
     private final String description;
 }
-

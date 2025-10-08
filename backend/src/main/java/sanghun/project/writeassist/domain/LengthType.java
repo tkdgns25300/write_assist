@@ -6,11 +6,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum LengthType {
-    SHORT("Short", "짧게"),
-    STANDARD("Standard", "표준"),
-    LONG("Long", "길게");
+    SHORT("짧게"),
+    STANDARD("표준"),
+    LONG("길게");
 
-    private final String value;
     private final String description;
 }
-
