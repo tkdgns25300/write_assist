@@ -6,11 +6,11 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum Tone {
-    VERY_CASUAL("1", "매우 캐주얼"),
-    CASUAL("2", "캐주얼"),
-    STANDARD("3", "표준"),
-    FORMAL("4", "포멀"),
-    VERY_FORMAL("5", "매우 포멀");
+    VERY_CASUAL("1", "Very Casual"),
+    CASUAL("2", "Casual"),
+    STANDARD("3", "Standard"),
+    FORMAL("4", "Formal"),
+    VERY_FORMAL("5", "Very Formal");
 
     private final String value;
     private final String description;

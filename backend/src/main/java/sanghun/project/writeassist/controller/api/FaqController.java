@@ -34,7 +34,7 @@ public class FaqController {
         log.info("Returning {} active FAQs", faqs.size());
 
         return ResponseEntity.ok(
-            ApiResponse.success(faqs, "FAQ 목록을 성공적으로 조회했습니다.")
+            ApiResponse.success(faqs, "Successfully retrieved FAQ list.")
         );
     }
 }

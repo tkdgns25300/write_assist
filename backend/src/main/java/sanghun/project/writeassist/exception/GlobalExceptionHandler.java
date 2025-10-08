@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
         log.warn("Validation failed: {}", e.getMessage());
 
         FieldError fieldError = e.getBindingResult().getFieldError();
-        String message = fieldError != null ? fieldError.getDefaultMessage() : "입력값이 유효하지 않습니다.";
+        String message = fieldError != null ? fieldError.getDefaultMessage() : "Invalid input value.";
 
         ApiResponse.ErrorDetail errorDetail = fieldError != null
             ? ApiResponse.ErrorDetail.of("VALIDATION_ERROR", fieldError.getField(), fieldError.getRejectedValue())
@@ -80,7 +80,7 @@ public class GlobalExceptionHandler {
         log.error("Unexpected error occurred", e);
 
         ApiResponse.ErrorDetail errorDetail = ApiResponse.ErrorDetail.of("INTERNAL_SERVER_ERROR");
-        ApiResponse<Void> response = ApiResponse.error("서버 내부 오류가 발생했습니다.", errorDetail);
+        ApiResponse<Void> response = ApiResponse.error("Internal server error occurred.", errorDetail);
 
         return ResponseEntity
             .status(HttpStatus.INTERNAL_SERVER_ERROR)

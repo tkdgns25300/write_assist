@@ -34,7 +34,7 @@ public class PresetController {
         log.info("Returning {} presets", presets.size());
 
         return ResponseEntity.ok(
-            ApiResponse.success(presets, "프리셋 목록을 성공적으로 조회했습니다.")
+            ApiResponse.success(presets, "Successfully retrieved preset list.")
         );
     }
 }

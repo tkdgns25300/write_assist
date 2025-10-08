@@ -6,11 +6,11 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum Purpose {
-    INFORMATION("정보 전달"),
-    PERSUASION_REQUEST("설득·요청"),
-    APOLOGY_REFUSAL("사과·거절"),
-    THANKS_PRAISE("감사·칭찬"),
-    FREEFORM("자유");
+    INFORMATION("Information Delivery"),
+    PERSUASION_REQUEST("Persuasion/Request"),
+    APOLOGY_REFUSAL("Apology/Refusal"),
+    THANKS_PRAISE("Thanks/Praise"),
+    FREEFORM("Freeform");
 
     private final String description;
 }
