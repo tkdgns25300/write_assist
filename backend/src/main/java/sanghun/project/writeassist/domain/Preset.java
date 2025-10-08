@@ -2,6 +2,8 @@ package sanghun.project.writeassist.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,23 +31,27 @@ public class Preset {
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "tone", nullable = false)
-    private Integer tone;
+    private Tone tone;
 
-    @Column(name = "purpose", nullable = false, length = 50)
-    private String purpose;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "purpose", nullable = false)
+    private Purpose purpose;
 
-    @Column(name = "length_type", nullable = false, length = 20)
-    private String lengthType;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "length_type", nullable = false)
+    private LengthType lengthType;
 
-    @Column(name = "style_type", nullable = false, length = 30)
-    private String styleType;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "style_type", nullable = false)
+    private StyleType styleType;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Builder
-    public Preset(String name, String description, Integer tone, String purpose, String lengthType, String styleType) {
+    public Preset(String name, String description, Tone tone, Purpose purpose, LengthType lengthType, StyleType styleType) {
         this.name = name;
         this.description = description;
         this.tone = tone;
