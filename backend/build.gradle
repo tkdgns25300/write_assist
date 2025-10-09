@@ -32,6 +32,11 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	
+	// Google Vertex AI (BOM으로 버전 관리)
+	implementation platform('com.google.cloud:libraries-bom:26.50.0')
+	implementation 'com.google.cloud:google-cloud-vertexai'
+	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
