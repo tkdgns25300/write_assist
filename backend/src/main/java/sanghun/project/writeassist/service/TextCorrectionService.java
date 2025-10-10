@@ -44,7 +44,11 @@ public class TextCorrectionService {
 
         log.info("Text correction completed. Generated {} unique versions", correctedTexts.size());
 
-        return TextCorrectionResponse.of(request.getText(), correctedTexts);
+        // 3. 남은 사용량 조회
+        int remainingUsage = usageTrackingService.getRemainingUsage(userUuid, userAgent);
+        log.debug("Remaining usage after correction: {}", remainingUsage);
+
+        return TextCorrectionResponse.of(request.getText(), correctedTexts, remainingUsage);
     }
 
     /**

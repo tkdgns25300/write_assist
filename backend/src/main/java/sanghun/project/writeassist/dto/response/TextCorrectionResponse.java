@@ -13,11 +13,13 @@ public class TextCorrectionResponse {
 
     private String originalText;
     private List<String> correctedTexts;
+    private Integer remainingUsage;
 
-    public static TextCorrectionResponse of(String originalText, List<String> correctedTexts) {
+    public static TextCorrectionResponse of(String originalText, List<String> correctedTexts, Integer remainingUsage) {
         return TextCorrectionResponse.builder()
             .originalText(originalText)
             .correctedTexts(correctedTexts)
+            .remainingUsage(remainingUsage)
             .build();
     }
 }
