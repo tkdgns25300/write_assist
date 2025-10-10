@@ -40,4 +40,4 @@ out/
 **/application.properties
 
 ### Google Cloud Service Account Keys ###
-src/key/*.json
+src/main/resources/key/*.json

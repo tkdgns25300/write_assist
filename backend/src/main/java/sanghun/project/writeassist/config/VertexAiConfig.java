@@ -6,8 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Collections;
 
@@ -22,19 +22,20 @@ public class VertexAiConfig {
     private String location;
 
     @Value("${google.cloud.credentials-path}")
-    private String credentialsPath;
+    private Resource credentialsResource;
 
     /**
      * GoogleCredentials Bean 생성
      * - 토큰 자동 갱신 지원
      * - 만료 시 자동으로 재발급
+     * - classpath: 리소스에서 자동으로 로드
      */
     @Bean
     public GoogleCredentials googleCredentials() throws IOException {
-        log.info("Initializing Google Credentials from: {}", credentialsPath);
+        log.info("Initializing Google Credentials from classpath resource");
 
         GoogleCredentials credentials = GoogleCredentials.fromStream(
-                new FileInputStream(credentialsPath)
+                credentialsResource.getInputStream()
             )
             .createScoped(Collections.singletonList("https://www.googleapis.com/auth/cloud-platform"));
 
