@@ -18,7 +18,7 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class UsageTrackingService {
 
-    private static final int DAILY_USAGE_LIMIT = 10;
+    private static final int DAILY_USAGE_LIMIT = 30;
 
     private final UsageTrackingRepository usageTrackingRepository;
 
