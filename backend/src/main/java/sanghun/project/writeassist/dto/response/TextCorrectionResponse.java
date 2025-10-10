@@ -4,20 +4,20 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextCorrectionResponse {
 
     private String originalText;
-    private String correctedText;
-    private Integer remainingUsage;
+    private List<String> correctedTexts;
 
-    public static TextCorrectionResponse of(String originalText, String correctedText, Integer remainingUsage) {
+    public static TextCorrectionResponse of(String originalText, List<String> correctedTexts) {
         return TextCorrectionResponse.builder()
             .originalText(originalText)
-            .correctedText(correctedText)
-            .remainingUsage(remainingUsage)
+            .correctedTexts(correctedTexts)
             .build();
     }
 }

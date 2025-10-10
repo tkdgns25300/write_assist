@@ -195,9 +195,9 @@ class PromptBuilderTest {
 
         // then
         assertThat(prompt).contains("OUTPUT RULES");
-        assertThat(prompt).contains("Do NOT include explanations");
+        assertThat(prompt).contains("Do NOT include any explanations");
         assertThat(prompt).contains("Output ONLY the corrected text");
-        assertThat(prompt).contains("Just provide the final corrected text directly");
+        assertThat(prompt).contains("Just provide the final corrected text");
     }
 }
 

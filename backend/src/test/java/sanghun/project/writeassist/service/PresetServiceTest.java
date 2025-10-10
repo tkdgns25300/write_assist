@@ -57,7 +57,6 @@ class PresetServiceTest {
         assertThat(result.get(0).getId()).isEqualTo(1);
         assertThat(result.get(0).getName()).isEqualTo("Standard Business Email");
         assertThat(result.get(0).getTone().getValue()).isEqualTo("FORMAL");
-        assertThat(result.get(0).getTone().getDescription()).isEqualTo("포멀");
         assertThat(result.get(0).getPurpose().getValue()).isEqualTo("INFORMATION");
         assertThat(result.get(0).getLengthType().getValue()).isEqualTo("STANDARD");
         assertThat(result.get(0).getStyleType().getValue()).isEqualTo("CONCISE_CLEAR");

@@ -47,7 +47,7 @@ class FaqControllerTest {
             .andDo(print())
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.success").value(true))
-            .andExpect(jsonPath("$.message").value("FAQ 목록을 성공적으로 조회했습니다."))
+            .andExpect(jsonPath("$.message").value("Successfully retrieved FAQ list."))
             .andExpect(jsonPath("$.data").isArray())
             .andExpect(jsonPath("$.data.length()").value(3))
             .andExpect(jsonPath("$.data[0].id").value(1))
