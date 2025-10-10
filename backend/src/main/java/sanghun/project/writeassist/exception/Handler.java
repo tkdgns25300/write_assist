@@ -13,8 +13,8 @@ import sanghun.project.writeassist.dto.response.ApiResponse;
 import java.util.stream.Collectors;
 
 @Slf4j
-@RestControllerAdvice
-public class GlobalExceptionHandler {
+@RestControllerAdvice()
+public class Handler {
 
     /**
      * 비즈니스 예외 처리

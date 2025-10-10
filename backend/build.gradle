@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.5.6'
+	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -36,6 +36,9 @@ dependencies {
 	// Google Vertex AI (BOM으로 버전 관리)
 	implementation platform('com.google.cloud:libraries-bom:26.50.0')
 	implementation 'com.google.cloud:google-cloud-vertexai'
+	
+	// Swagger (SpringDoc OpenAPI)
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
