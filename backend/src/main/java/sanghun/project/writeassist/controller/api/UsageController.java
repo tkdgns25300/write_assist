@@ -19,8 +19,6 @@ import sanghun.project.writeassist.util.CookieUtils;
 @RequiredArgsConstructor
 public class UsageController {
 
-    private static final int DAILY_USAGE_LIMIT = 10;
-
     private final UsageTrackingService usageTrackingService;
 
     /**
@@ -50,12 +48,13 @@ public class UsageController {
 
         // 3. 남은 사용량 조회
         int remainingUsage = usageTrackingService.getRemainingUsage(userUuid, userAgent);
-        int usedToday = DAILY_USAGE_LIMIT - remainingUsage;
+        int dailyLimit = usageTrackingService.getDailyUsageLimit();
+        int usedToday = dailyLimit - remainingUsage;
 
-        log.info("Usage info - Used: {}, Remaining: {}, Limit: {}", usedToday, remainingUsage, DAILY_USAGE_LIMIT);
+        log.info("Usage info - Used: {}, Remaining: {}, Limit: {}", usedToday, remainingUsage, dailyLimit);
 
         // 4. 응답 생성
-        UsageResponse response = UsageResponse.of(remainingUsage, DAILY_USAGE_LIMIT, usedToday);
+        UsageResponse response = UsageResponse.of(remainingUsage, dailyLimit, usedToday);
 
         return ResponseEntity.ok(
             ApiResponse.success(response, "Successfully retrieved usage information.")

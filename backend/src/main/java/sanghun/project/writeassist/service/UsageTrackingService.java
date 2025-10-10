@@ -87,5 +87,14 @@ public class UsageTrackingService {
         log.info("No usage record found. Remaining: {}", DAILY_USAGE_LIMIT);
         return DAILY_USAGE_LIMIT;
     }
+
+    /**
+     * 일일 사용 제한 횟수를 반환합니다.
+     *
+     * @return 일일 사용 제한 횟수
+     */
+    public int getDailyUsageLimit() {
+        return DAILY_USAGE_LIMIT;
+    }
 }
 
