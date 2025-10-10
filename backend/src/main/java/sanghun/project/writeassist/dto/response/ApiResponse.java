@@ -1,15 +1,24 @@
 package sanghun.project.writeassist.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
+@Schema(description = "표준 API 응답 래퍼")
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> {
 
+    @Schema(description = "성공 여부", example = "true")
     private final boolean success;
+
+    @Schema(description = "응답 데이터 (성공 시에만 존재)")
     private final T data;
+
+    @Schema(description = "응답 메시지", example = "Text correction completed successfully.")
     private final String message;
+
+    @Schema(description = "에러 상세 정보 (실패 시에만 존재)")
     private final ErrorDetail error;
 
     private ApiResponse(boolean success, T data, String message, ErrorDetail error) {
@@ -57,11 +66,17 @@ public class ApiResponse<T> {
     /**
      * 에러 상세 정보
      */
+    @Schema(description = "에러 상세 정보")
     @Getter
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ErrorDetail {
+        @Schema(description = "에러 코드", example = "U001")
         private final String code;
+
+        @Schema(description = "에러 발생 필드 (Validation 에러 시)", example = "text")
         private final String field;
+
+        @Schema(description = "거부된 값 (Validation 에러 시)", example = "")
         private final Object rejectedValue;
 
         public ErrorDetail(String code, String field, Object rejectedValue) {

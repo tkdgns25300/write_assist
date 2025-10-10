@@ -1,6 +1,7 @@
 package sanghun.project.writeassist.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
 import sanghun.project.writeassist.domain.LengthType;
@@ -9,17 +10,31 @@ import sanghun.project.writeassist.domain.Purpose;
 import sanghun.project.writeassist.domain.StyleType;
 import sanghun.project.writeassist.domain.Tone;
 
+@Schema(description = "프리셋 응답")
 @Getter
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PresetResponse {
 
+    @Schema(description = "프리셋 ID", example = "1")
     private Integer id;
+
+    @Schema(description = "프리셋 이름", example = "Standard Business Email")
     private String name;
+
+    @Schema(description = "프리셋 설명", example = "For professional communication with external partners or superiors.")
     private String description;
+
+    @Schema(description = "톤 정보 (값 + 설명)")
     private ToneInfo tone;
+
+    @Schema(description = "목적 정보 (값 + 설명)")
     private PurposeInfo purpose;
+
+    @Schema(description = "분량 정보 (값 + 설명)")
     private LengthTypeInfo lengthType;
+
+    @Schema(description = "스타일 정보 (값 + 설명)")
     private StyleTypeInfo styleType;
 
     public static PresetResponse from(Preset preset) {

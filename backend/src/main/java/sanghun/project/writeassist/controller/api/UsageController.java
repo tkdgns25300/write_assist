@@ -1,5 +1,10 @@
 package sanghun.project.writeassist.controller.api;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +18,7 @@ import sanghun.project.writeassist.dto.response.UsageResponse;
 import sanghun.project.writeassist.service.UsageTrackingService;
 import sanghun.project.writeassist.util.CookieUtils;
 
+@Tag(name = "Usage Management", description = "사용량 관리 및 조회 API")
 @Slf4j
 @RestController
 @RequestMapping("/api/usage")
@@ -28,6 +34,24 @@ public class UsageController {
      * @param httpResponse HTTP 응답
      * @return 사용량 정보
      */
+    @Operation(
+        summary = "남은 사용량 조회",
+        description = "오늘 남은 사용 가능 횟수를 조회합니다.\n\n" +
+            "**반환 정보:**\n" +
+            "- remainingUsage: 남은 사용 가능 횟수 (0~30)\n" +
+            "- dailyLimit: 일일 제한 (30회)\n" +
+            "- usedToday: 오늘 사용한 횟수\n\n" +
+            "**참고:**\n" +
+            "- 사용량은 증가하지 않습니다 (조회만)\n" +
+            "- UUID 쿠키 자동 생성 (첫 방문 시)"
+    )
+    @ApiResponses({
+        @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "200",
+            description = "사용량 정보 조회 성공",
+            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+        )
+    })
     @GetMapping("/remaining")
     public ResponseEntity<ApiResponse<UsageResponse>> getRemainingUsage(
         HttpServletRequest httpRequest,
