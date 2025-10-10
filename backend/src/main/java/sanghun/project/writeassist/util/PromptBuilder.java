@@ -60,25 +60,22 @@ public class PromptBuilder {
 
         // 4. 출력 규칙
         prompt.append("=== OUTPUT RULES ===\n");
-        prompt.append("✓ Generate EXACTLY 3 different correction versions\n");
-        prompt.append("✓ Each version should vary slightly in expression while meeting all requirements\n");
-        prompt.append("✓ Separate each version with '|||' (three vertical bars)\n");
-        prompt.append("✗ Do NOT include explanations, notes, or meta-commentary\n");
-        prompt.append("✗ Do NOT add phrases like 'Version 1:', 'Option 1:', or 'Here is the correction:'\n");
-        prompt.append("✗ Do NOT use quotation marks around the output\n");
-        prompt.append("✓ Just provide three corrected versions separated by |||\n\n");
+        prompt.append("✓ Output ONLY the corrected text\n");
+        prompt.append("✗ Do NOT include any explanations, notes, or meta-commentary\n");
+        prompt.append("✗ Do NOT add phrases like 'Here is the corrected version:' or 'Corrected text:'\n");
+        prompt.append("✗ Do NOT use quotation marks or formatting around the output\n");
+        prompt.append("✗ Do NOT add numbering like '1.', '2.', or 'Version 1:'\n");
+        prompt.append("✓ Just provide the final corrected text directly\n\n");
 
         // 5. 예시
         prompt.append("=== EXAMPLE ===\n");
         prompt.append("Input: \"오늘 회의 하실래요?\"\n\n");
         prompt.append("Correct Output:\n");
-        prompt.append("오늘 회의하시겠습니까?|||\n");
-        prompt.append("오늘 회의 가능하신가요?|||\n");
-        prompt.append("오늘 회의 시간을 내주실 수 있으신가요?\n\n");
-        prompt.append("Wrong Output:\n");
+        prompt.append("오늘 회의하시겠습니까?\n\n");
+        prompt.append("Wrong Outputs:\n");
         prompt.append("Version 1: 오늘 회의하시겠습니까? ✗\n");
         prompt.append("\"오늘 회의하시겠습니까?\" ✗\n");
-        prompt.append("Here are the corrections: ... ✗\n\n");
+        prompt.append("Here is the correction: 오늘 회의하시겠습니까? ✗\n\n");
 
         // 6. 원본 텍스트
         prompt.append("========================================\n");
