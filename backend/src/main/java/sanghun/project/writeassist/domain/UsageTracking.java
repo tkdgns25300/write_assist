@@ -18,7 +18,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(
     name = "usage_tracking",
-    uniqueConstraints = @UniqueConstraint(columnNames = {"user_uuid", "user_agent"})
+    uniqueConstraints = @UniqueConstraint(
+        name = "unique_usage_tracking",
+        columnNames = {"user_uuid", "user_agent", "usage_date"}
+    )
 )
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
