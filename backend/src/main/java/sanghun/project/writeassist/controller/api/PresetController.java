@@ -1,8 +1,6 @@
 package sanghun.project.writeassist.controller.api;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -44,8 +42,7 @@ public class PresetController {
     @ApiResponses({
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
             responseCode = "200",
-            description = "프리셋 목록 조회 성공",
-            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+            description = "프리셋 목록 조회 성공"
         )
     })
     @GetMapping

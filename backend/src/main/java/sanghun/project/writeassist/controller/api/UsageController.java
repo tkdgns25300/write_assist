@@ -1,8 +1,6 @@
 package sanghun.project.writeassist.controller.api;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -48,8 +46,7 @@ public class UsageController {
     @ApiResponses({
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
             responseCode = "200",
-            description = "사용량 정보 조회 성공",
-            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+            description = "사용량 정보 조회 성공"
         )
     })
     @GetMapping("/remaining")

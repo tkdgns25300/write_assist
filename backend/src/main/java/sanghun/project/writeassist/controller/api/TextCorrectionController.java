@@ -1,8 +1,6 @@
 package sanghun.project.writeassist.controller.api;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -53,23 +51,19 @@ public class TextCorrectionController {
     @ApiResponses({
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
             responseCode = "200",
-            description = "교정 성공",
-            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+            description = "교정 성공"
         ),
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
             responseCode = "400",
-            description = "입력 검증 실패 (텍스트 없음, 1000자 초과, 필수 파라미터 누락)",
-            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+            description = "입력 검증 실패 (텍스트 없음, 1000자 초과, 필수 파라미터 누락)"
         ),
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
             responseCode = "429",
-            description = "일일 사용량 초과 (30회 제한)",
-            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+            description = "일일 사용량 초과 (30회 제한)"
         ),
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
             responseCode = "503",
-            description = "AI 서비스 에러 (일시적인 장애)",
-            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+            description = "AI 서비스 에러 (일시적인 장애)"
         )
     })
     @PostMapping
