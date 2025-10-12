@@ -41,3 +41,9 @@ out/
 
 ### Google Cloud Service Account Keys ###
 src/main/resources/key/*.json
+
+### Application Logs ###
+logs/
+*.log
+*.log.gz
+nohup.out
