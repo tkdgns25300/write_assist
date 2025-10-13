@@ -1,0 +1,37 @@
+---
+alwaysApply: true
+---
+
+### **Write Assist Project Rules**
+
+#### **1. General Principles**
+
+*   **Language**: All code (variables, functions, components, etc.) must be written in English. Comments, when necessary, should be written in Korean.
+*   **Readability**: Code must be clear and easy to read. Avoid unnecessary abbreviations or overly complex logic.
+*   **Cleanliness**: Debugging code such as `console.log` and temporary comments must be removed from the final deliverable.
+
+#### **2. File and Folder Structure**
+
+*   **Components**:
+    *   All UI components must be located within the `app/src/components/` directory.
+    *   Reusable, general-purpose components (e.g., Button, Input) should be managed in an `app/src/components/ui/` directory.
+    *   Complex components used only on a specific page (e.g., Home) should be managed in a directory named after that page, such as `app/src/components/home/`.
+*   **API Logic**: All functions that communicate with the backend must be centralized in the `app/src/lib/api.ts` file.
+*   **Utilities**: Helper functions used across the project (e.g., date formatting) should be placed in `app/src/lib/utils.ts`.
+
+#### **3. Naming Convention**
+
+*   **Components**: Use PascalCase for both filenames and function names (e.g., `Header.tsx`, `function Header() { ... }`).
+*   **Variables & Functions**: Use camelCase for general variables and functions (e.g., `const userCount = 10;`, `function getUserCount() { ... }`).
+*   **Types**: Use PascalCase for TypeScript type definitions (e.g., `interface UserProfile { ... }`).
+
+#### **4. Code Style**
+
+*   **Component Design**:
+    *   Strive to keep components small and focused on a single responsibility (Single Responsibility Principle).
+    *   Always explicitly define the types for component `props` using a TypeScript `interface`.
+*   **Styling (Tailwind CSS)**:
+    *   Styling should primarily be done using Tailwind CSS utility classes.
+    *   Minimize the use of `@apply`. Prefer creating a new reusable component over applying a complex, repeated set of classes.
+*   **TypeScript**:
+    *   Strictly avoid using the `any` type. Define specific types whenever possible.
