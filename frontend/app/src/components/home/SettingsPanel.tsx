@@ -3,13 +3,37 @@
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Slider from '@/components/ui/Slider';
+import { Settings } from '@/app/page';
+import { PresetResponse, Tone } from '@/types/api';
 
-export default function SettingsPanel() {
-  // 임시 데이터. 실제 기능 구현 시 state로 대체됩니다.
-  const toneValue = 3;
-  const purpose = 'INFORMATION';
-  const length = 'STANDARD';
-  const style = 'CONCISE_CLEAR';
+interface SettingsPanelProps {
+  settings: Settings;
+  onSettingsChange: (newSettings: Partial<Settings>) => void;
+  presets: PresetResponse[];
+  onPresetClick: (preset: PresetResponse) => void;
+}
+
+export default function SettingsPanel({
+  settings,
+  onSettingsChange,
+  presets,
+  onPresetClick,
+}: SettingsPanelProps) {
+
+  const toneValueMap: Record<Tone, number> = {
+    'VERY_CASUAL': 1,
+    'CASUAL': 2,
+    'STANDARD': 3,
+    'FORMAL': 4,
+    'VERY_FORMAL': 5,
+  };
+  const toneKeyMap: Record<number, Tone> = {
+    1: 'VERY_CASUAL',
+    2: 'CASUAL',
+    3: 'STANDARD',
+    4: 'FORMAL',
+    5: 'VERY_FORMAL',
+  };
 
   return (
     <Card className="space-y-8">
@@ -17,10 +41,15 @@ export default function SettingsPanel() {
       <div className="space-y-4">
         <h2 className="text-lg font-semibold text-gray-800">Quick Presets</h2>
         <div className="space-y-2">
-          <Button variant="secondary">Standard Business Mail</Button>
-          <Button variant="secondary">Casual Colleague Chat</Button>
-          <Button variant="secondary">Polite Request/Refusal</Button>
-          <Button variant="secondary">Report Draft</Button>
+          {presets.map((preset) => (
+            <Button
+              key={preset.id}
+              variant="secondary"
+              onClick={() => onPresetClick(preset)}
+            >
+              {preset.name}
+            </Button>
+          ))}
         </div>
       </div>
 
@@ -31,14 +60,14 @@ export default function SettingsPanel() {
         {/* Tone */}
         <div className="space-y-3">
           <div className="flex justify-between items-center text-sm text-gray-600">
-            <span>Tone: Level {toneValue}</span>
+            <span>Tone: Level {toneValueMap[settings.tone]}</span>
           </div>
           <Slider
             min={1}
             max={5}
             step={1}
-            value={toneValue}
-            onChange={() => {}}
+            value={toneValueMap[settings.tone]}
+            onChange={(e) => onSettingsChange({ tone: toneKeyMap[parseInt(e.target.value)] })}
           />
           <div className="flex justify-between items-center text-xs text-gray-500">
             <span>Very Casual</span>
@@ -50,10 +79,10 @@ export default function SettingsPanel() {
         <div className="space-y-3">
           <label className="text-sm font-medium text-gray-600">Purpose</label>
           <div className="grid grid-cols-2 gap-2">
-            <Button variant={purpose === 'INFORMATION' ? 'primary' : 'secondary'}>Information</Button>
-            <Button variant={purpose === 'PERSUASION_REQUEST' ? 'primary' : 'secondary'}>Persuasion/Request</Button>
-            <Button variant={purpose === 'APOLOGY_REFUSAL' ? 'primary' : 'secondary'}>Apology/Refusal</Button>
-            <Button variant={purpose === 'THANKS_PRAISE' ? 'primary' : 'secondary'}>Thanks/Praise</Button>
+            <Button onClick={() => onSettingsChange({ purpose: 'INFORMATION' })} variant={settings.purpose === 'INFORMATION' ? 'primary' : 'secondary'}>Information</Button>
+            <Button onClick={() => onSettingsChange({ purpose: 'PERSUASION_REQUEST' })} variant={settings.purpose === 'PERSUASION_REQUEST' ? 'primary' : 'secondary'}>Persuasion/Request</Button>
+            <Button onClick={() => onSettingsChange({ purpose: 'APOLOGY_REFUSAL' })} variant={settings.purpose === 'APOLOGY_REFUSAL' ? 'primary' : 'secondary'}>Apology/Refusal</Button>
+            <Button onClick={() => onSettingsChange({ purpose: 'THANKS_PRAISE' })} variant={settings.purpose === 'THANKS_PRAISE' ? 'primary' : 'secondary'}>Thanks/Praise</Button>
           </div>
         </div>
 
@@ -61,9 +90,9 @@ export default function SettingsPanel() {
         <div className="space-y-3">
           <label className="text-sm font-medium text-gray-600">Length</label>
           <div className="grid grid-cols-3 gap-2">
-            <Button variant={length === 'SHORT' ? 'primary' : 'secondary'}>Short</Button>
-            <Button variant={length === 'STANDARD' ? 'primary' : 'secondary'}>Standard</Button>
-            <Button variant={length === 'LONG' ? 'primary' : 'secondary'}>Long</Button>
+            <Button onClick={() => onSettingsChange({ lengthType: 'SHORT' })} variant={settings.lengthType === 'SHORT' ? 'primary' : 'secondary'}>Short</Button>
+            <Button onClick={() => onSettingsChange({ lengthType: 'STANDARD' })} variant={settings.lengthType === 'STANDARD' ? 'primary' : 'secondary'}>Standard</Button>
+            <Button onClick={() => onSettingsChange({ lengthType: 'LONG' })} variant={settings.lengthType === 'LONG' ? 'primary' : 'secondary'}>Long</Button>
           </div>
         </div>
 
@@ -71,9 +100,9 @@ export default function SettingsPanel() {
         <div className="space-y-3">
           <label className="text-sm font-medium text-gray-600">Style</label>
           <div className="flex flex-col space-y-2">
-            <Button variant={style === 'CONCISE_CLEAR' ? 'primary' : 'secondary'}>Concise/Clear</Button>
-            <Button variant={style === 'EMOTIONAL_NATURAL' ? 'primary' : 'secondary'}>Emotional/Natural</Button>
-            <Button variant={style === 'PROFESSIONAL_ACADEMIC' ? 'primary' : 'secondary'}>Professional/Academic</Button>
+            <Button onClick={() => onSettingsChange({ styleType: 'CONCISE_CLEAR' })} variant={settings.styleType === 'CONCISE_CLEAR' ? 'primary' : 'secondary'}>Concise/Clear</Button>
+            <Button onClick={() => onSettingsChange({ styleType: 'EMOTIONAL_NATURAL' })} variant={settings.styleType === 'EMOTIONAL_NATURAL' ? 'primary' : 'secondary'}>Emotional/Natural</Button>
+            <Button onClick={() => onSettingsChange({ styleType: 'PROFESSIONAL_ACADEMIC' })} variant={settings.styleType === 'PROFESSIONAL_ACADEMIC' ? 'primary' : 'secondary'}>Professional/Academic</Button>
           </div>
         </div>
       </div>
