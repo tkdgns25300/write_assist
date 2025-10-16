@@ -6,22 +6,11 @@ import { FaqResponse } from '@/types/api';
 import Accordion from '@/components/ui/Accordion';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { Mail, HelpCircle, FileText, Bot, Settings, Languages } from 'lucide-react';
-
-const iconMap: { [key: string]: React.ReactNode } = {
-  "Is Write Assist really free to use?": <HelpCircle className="w-5 h-5 text-blue-600" />,
-  "How secure is my data?": <FileText className="w-5 h-5 text-blue-600" />,
-  "What types of text can I refine?": <Bot className="w-5 h-5 text-blue-600" />,
-  "How accurate is the AI refinement?": <Settings className="w-5 h-5 text-blue-600" />,
-  "Can I use Write Assist for commercial purposes?": <FileText className="w-5 h-5 text-blue-600" />,
-  "What languages does Write Assist support?": <Languages className="w-5 h-5 text-blue-600" />,
-  // Add other mappings here
-};
-
+import { HelpCircle } from 'lucide-react';
 
 export default function FaqPage() {
   const [faqs, setFaqs] = useState<FaqResponse[]>([]);
-  const [openId, setOpenId] = useState<number | null>(null);
+  const [openIds, setOpenIds] = useState<number[]>([]);
 
   useEffect(() => {
     const fetchFaqs = async () => {
@@ -29,7 +18,7 @@ export default function FaqPage() {
         const data = await getFaqs();
         setFaqs(data);
         if (data.length > 0) {
-          setOpenId(data[0].id); // Open the first FAQ by default
+          setOpenIds([data[0].id]); // Open the first FAQ by default
         }
       } catch (error) {
         console.error('Failed to fetch FAQs:', error);
@@ -39,7 +28,11 @@ export default function FaqPage() {
   }, []);
 
   const handleToggle = (id: number) => {
-    setOpenId(openId === id ? null : id);
+    setOpenIds(prevOpenIds =>
+      prevOpenIds.includes(id)
+        ? prevOpenIds.filter(prevId => prevId !== id)
+        : [...prevOpenIds, id]
+    );
   };
 
   return (
@@ -56,11 +49,11 @@ export default function FaqPage() {
           {faqs.map((faq) => (
             <Card key={faq.id} className="!p-0">
               <Accordion
-                isOpen={openId === faq.id}
+                isOpen={openIds.includes(faq.id)}
                 onToggle={() => handleToggle(faq.id)}
                 title={
                   <div className="flex items-center space-x-3">
-                    {iconMap[faq.question] || <HelpCircle className="w-5 h-5 text-blue-600" />}
+                    <HelpCircle className="w-5 h-5 text-blue-600" />
                     <span>{faq.question}</span>
                   </div>
                 }
@@ -78,7 +71,6 @@ export default function FaqPage() {
           <div className="mt-6">
             <a href="mailto:tkdgns25300@gmail.com">
               <Button className="w-auto">
-                <Mail className="w-4 h-4 mr-2" />
                 Contact Support
               </Button>
             </a>
