@@ -17,9 +17,6 @@ export default function FaqPage() {
       try {
         const data = await getFaqs();
         setFaqs(data);
-        if (data.length > 0) {
-          setOpenIds([data[0].id]); // Open the first FAQ by default
-        }
       } catch (error) {
         console.error('Failed to fetch FAQs:', error);
       }
