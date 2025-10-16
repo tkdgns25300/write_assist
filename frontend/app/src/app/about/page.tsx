@@ -1,7 +1,15 @@
+import HeroSection from '@/components/about/HeroSection';
+import HowItWorksSection from '@/components/about/HowItWorksSection';
+import WhyChooseUsSection from '@/components/about/WhyChooseUsSection';
+import FinalCtaSection from '@/components/about/FinalCtaSection';
+
 export default function AboutPage() {
-    return (
-        <main className="container mx-auto px-6 py-8">
-            <h1 className="text-4xl font-bold text-center">About Write Assist</h1>
-        </main>
-    );
+  return (
+    <div className="bg-white text-gray-800">
+      <HeroSection />
+      <HowItWorksSection />
+      <WhyChooseUsSection />
+      <FinalCtaSection />
+    </div>
+  );
 }
