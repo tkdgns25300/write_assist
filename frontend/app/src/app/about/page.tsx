@@ -1,7 +1,6 @@
 import HeroSection from '@/components/about/HeroSection';
 import HowItWorksSection from '@/components/about/HowItWorksSection';
 import WhyChooseUsSection from '@/components/about/WhyChooseUsSection';
-import FinalCtaSection from '@/components/about/FinalCtaSection';
 
 export default function AboutPage() {
   return (
@@ -9,7 +8,6 @@ export default function AboutPage() {
       <HeroSection />
       <HowItWorksSection />
       <WhyChooseUsSection />
-      <FinalCtaSection />
     </div>
   );
 }

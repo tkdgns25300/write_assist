@@ -6,8 +6,9 @@ import Button from '@/components/ui/Button';
 export default function HeroSection() {
   return (
     <section className="text-center py-20 px-4">
-      <h1 className="text-4xl md:text-5xl font-bold max-w-2xl mx-auto">
-        Write Assist: Context Solved! AI Instantly Generates Perfect Text
+      <h1 className="text-4xl md:text-5xl font-bold max-w-3xl mx-auto">
+        <span className="block">Write Assist: Context Solved!</span>
+        <span className="block whitespace-nowrap">AI Instantly Generates Perfect Text</span>
       </h1>
       <p className="text-lg text-gray-600 mt-4">
         Context-Perfect Writing, No Login, 1 Second

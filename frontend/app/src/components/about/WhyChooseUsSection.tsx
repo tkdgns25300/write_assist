@@ -2,6 +2,8 @@
 
 import { Zap, UserX, BrainCircuit, PenTool } from 'lucide-react';
 import Card from '@/components/ui/Card';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 const features = [
   {
@@ -29,9 +31,9 @@ const features = [
 export default function WhyChooseUsSection() {
   return (
     <section className="py-20 px-4">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-12">Why Choose Write Assist?</h2>
-        <Card className="max-w-4xl mx-auto !p-10">
+      <div className="container mx-auto bg-gray-50 rounded-lg py-16">
+        <h2 className="text-4xl font-bold mb-12 text-center">Why Choose Write Assist?</h2>
+        <Card className="max-w-4xl mx-auto !p-12 bg-white">
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 text-left">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start space-x-4">
@@ -44,6 +46,13 @@ export default function WhyChooseUsSection() {
             ))}
           </div>
         </Card>
+        <div className="mt-12 text-center">
+          <Link href="/">
+            <Button className="px-8 py-3 text-lg">
+              Start Context Refinement Now!
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );

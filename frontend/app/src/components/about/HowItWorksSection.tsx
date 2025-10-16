@@ -22,7 +22,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-20 bg-gray-50 px-4">
+    <section className="py-20 bg-white px-4">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-12">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-12">
@@ -32,10 +32,7 @@ export default function HowItWorksSection() {
                 {step.icon}
               </div>
               <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-              <p className="text-gray-600 mb-6">{step.description}</p>
-              <div className="w-full h-40 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-                Screenshot/GIF Placeholder
-              </div>
+              <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
         </div>
