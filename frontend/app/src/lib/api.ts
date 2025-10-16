@@ -1,4 +1,4 @@
-import { ApiResponse, PresetResponse, TextCorrectionRequest, TextCorrectionResponse, UsageResponse } from "@/types/api";
+import { ApiResponse, PresetResponse, TextCorrectionRequest, TextCorrectionResponse, UsageResponse, FaqResponse } from "@/types/api";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -39,4 +39,8 @@ export const postCorrectText = (body: TextCorrectionRequest): Promise<TextCorrec
     method: 'POST',
     body: JSON.stringify(body),
   });
+};
+
+export const getFaqs = (): Promise<FaqResponse[]> => {
+  return fetcher<FaqResponse[]>('/faq');
 };
