@@ -16,7 +16,7 @@ export default function Header() {
                 </Link>
 
                 {/* Navigation Links */}
-                <div className="hidden md:flex items-center space-x-6">
+                <div className="hidden md:flex items-center space-x-12">
                     <Link href="/about" className="text-gray-600 hover:text-gray-800 font-medium">
                         About
                     </Link>
