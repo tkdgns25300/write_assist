@@ -1,7 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Italianno } from "next/font/google";
+import { Gift } from "lucide-react";
+import { getUsage } from "@/lib/api";
+import { UsageResponse } from "@/types/api";
 
 const italianno = Italianno({
     weight: "400",
@@ -9,9 +15,34 @@ const italianno = Italianno({
 });
 
 export default function Footer() {
+    const [usage, setUsage] = useState<UsageResponse | null>(null);
+
+    useEffect(() => {
+        const fetchUsage = async () => {
+            try {
+                const usageData = await getUsage();
+                setUsage(usageData);
+            } catch (error) {
+                console.error("Failed to fetch usage data:", error);
+            }
+        };
+
+        fetchUsage();
+    }, []);
+
     return (
         <footer className="bg-gray-50 text-gray-600 border-t border-gray-200">
             <div className="container mx-auto px-6 py-8">
+                {/* Usage Info - Top */}
+                {usage && (
+                    <div className="flex items-center mb-10">
+                        <Gift className="text-blue-600 mr-2" size={20} />
+                        <span className="text-blue-600 text-sm font-medium">
+                            Daily Free Refinements Remaining: {usage.remainingUsage} / {usage.dailyLimit}
+                        </span>
+                    </div>
+                )}
+
                 <div className="flex flex-col items-center justify-between sm:flex-row">
                     {/* Left Section: Logo and Copyright */}
                     <div className="flex flex-col items-center sm:items-start mb-6 sm:mb-0">
