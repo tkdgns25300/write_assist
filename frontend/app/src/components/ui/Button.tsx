@@ -12,7 +12,7 @@ export default function Button({ children, className = "", variant = "primary", 
 
     const variantStyles = {
         primary:
-            "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed border border-blue-600",
+            "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed border border-blue-600 disabled:border-gray-300",
         secondary:
             "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-blue-500 focus:ring-blue-500",
     };
