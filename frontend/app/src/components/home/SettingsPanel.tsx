@@ -76,28 +76,32 @@ export default function SettingsPanel({ settings, onSettingsChange, presets, onP
                 {/* Purpose */}
                 <div className="space-y-4">
                     <label className="text-sm font-medium text-gray-700">Purpose</label>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2 mt-4">
                         <Button
                             onClick={() => onSettingsChange({ purpose: "INFORMATION" })}
                             variant={settings.purpose === "INFORMATION" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Information
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ purpose: "PERSUASION_REQUEST" })}
                             variant={settings.purpose === "PERSUASION_REQUEST" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Persuasion/Request
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ purpose: "APOLOGY_REFUSAL" })}
                             variant={settings.purpose === "APOLOGY_REFUSAL" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Apology/Refusal
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ purpose: "THANKS_PRAISE" })}
                             variant={settings.purpose === "THANKS_PRAISE" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Thanks/Praise
                         </Button>
@@ -105,24 +109,27 @@ export default function SettingsPanel({ settings, onSettingsChange, presets, onP
                 </div>
 
                 {/* Length */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                     <label className="text-sm font-medium text-gray-700">Length</label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-2 mt-4">
                         <Button
                             onClick={() => onSettingsChange({ lengthType: "SHORT" })}
                             variant={settings.lengthType === "SHORT" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Short
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ lengthType: "STANDARD" })}
                             variant={settings.lengthType === "STANDARD" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Standard
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ lengthType: "LONG" })}
                             variant={settings.lengthType === "LONG" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Long
                         </Button>
@@ -130,24 +137,27 @@ export default function SettingsPanel({ settings, onSettingsChange, presets, onP
                 </div>
 
                 {/* Style */}
-                <div className="space-y-4">
+                <div>
                     <label className="text-sm font-medium text-gray-700">Style</label>
-                    <div className="flex flex-col space-y-2">
+                    <div className="flex flex-col space-y-2 mt-4">
                         <Button
                             onClick={() => onSettingsChange({ styleType: "CONCISE_CLEAR" })}
                             variant={settings.styleType === "CONCISE_CLEAR" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Concise/Clear
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ styleType: "EMOTIONAL_NATURAL" })}
                             variant={settings.styleType === "EMOTIONAL_NATURAL" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Emotional/Natural
                         </Button>
                         <Button
                             onClick={() => onSettingsChange({ styleType: "PROFESSIONAL_ACADEMIC" })}
                             variant={settings.styleType === "PROFESSIONAL_ACADEMIC" ? "primary" : "secondary"}
+                            className="break-words"
                         >
                             Professional/Academic
                         </Button>

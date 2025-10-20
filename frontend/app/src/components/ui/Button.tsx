@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button({ children, className = "", variant = "primary", ...props }: ButtonProps) {
     const baseStyles =
-        "text-center rounded-md px-4 py-2 font-normal text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
+        "text-center rounded-md px-4 py-2 font-normal text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 min-h-[2.5rem] flex items-center justify-center";
 
     const variantStyles = {
         primary:
