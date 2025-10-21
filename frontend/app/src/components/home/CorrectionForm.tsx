@@ -27,8 +27,8 @@ export default function CorrectionForm({
                 placeholder="Please enter the text to be refined."
             />
             <div className="flex">
-                <Button onClick={onGenerate} disabled={!inputText || isLoading} className="w-full py-4 text-lg">
-                    {isLoading ? "Generating..." : "Generate"}
+                <Button onClick={onGenerate} disabled={!inputText || isLoading} isLoading={isLoading} className="w-full py-4 text-lg">
+                    Generate
                 </Button>
             </div>
         </div>

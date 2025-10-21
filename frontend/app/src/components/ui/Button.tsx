@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
+import { Loader2 } from "lucide-react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary";
+    isLoading?: boolean;
 }
 
-export default function Button({ children, className = "", variant = "primary", ...props }: ButtonProps) {
+export default function Button({ children, className = "", variant = "primary", isLoading = false, ...props }: ButtonProps) {
     const baseStyles =
         "text-center rounded-md px-4 py-2 font-normal text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 min-h-[2.5rem] flex items-center justify-center";
 
@@ -18,8 +20,15 @@ export default function Button({ children, className = "", variant = "primary", 
     };
 
     return (
-        <button className={`${baseStyles} ${variantStyles[variant]} ${className}`} {...props}>
-            {children}
+        <button className={`${baseStyles} ${variantStyles[variant]} ${className}`} disabled={isLoading || props.disabled} {...props}>
+            {isLoading ? (
+                <>
+                    <Loader2 className="mr-2 h-4 w-4 custom-spin" />
+                    Generating...
+                </>
+            ) : (
+                children
+            )}
         </button>
     );
 }
