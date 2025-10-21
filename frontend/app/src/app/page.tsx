@@ -80,13 +80,17 @@ export default function Home() {
                 text: inputText,
                 ...settings,
             });
+            console.log("[Home Page] Received from postCorrectText:", response); // For debugging
             setResult(response);
             if (usage) {
-                setUsage((prev) => ({
-                    ...prev!,
+                const newUsage = {
+                    ...usage,
                     remainingUsage: response.remainingUsage,
-                    usedToday: prev!.usedToday + 1,
-                }));
+                    usedToday: usage.usedToday + 1,
+                };
+                setUsage(newUsage);
+                // Dispatch a custom event with the new usage data
+                window.dispatchEvent(new CustomEvent('usageUpdated', { detail: newUsage }));
             }
         } catch (error: any) {
             console.error("Failed to correct text:", error);

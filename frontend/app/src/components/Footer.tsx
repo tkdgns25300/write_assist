@@ -17,17 +17,33 @@ const italianno = Italianno({
 export default function Footer() {
     const [usage, setUsage] = useState<UsageResponse | null>(null);
 
+    const fetchUsage = async () => {
+        try {
+            const usageData = await getUsage();
+            console.log("[Footer] Received from getUsage:", usageData); // For debugging
+            setUsage(usageData);
+        } catch (error) {
+            console.error("Failed to fetch usage data:", error);
+        }
+    };
+
     useEffect(() => {
-        const fetchUsage = async () => {
-            try {
-                const usageData = await getUsage();
-                setUsage(usageData);
-            } catch (error) {
-                console.error("Failed to fetch usage data:", error);
+        fetchUsage(); // Initial fetch
+
+        const handleUsageUpdate = (event: Event) => {
+            const customEvent = event as CustomEvent<UsageResponse>;
+            const newUsage = customEvent.detail;
+            if (newUsage) {
+                console.log("[Footer] Received usage data from event:", newUsage); // For debugging
+                setUsage(newUsage);
             }
         };
+        
+        window.addEventListener('usageUpdated', handleUsageUpdate);
 
-        fetchUsage();
+        return () => {
+            window.removeEventListener('usageUpdated', handleUsageUpdate);
+        };
     }, []);
 
     return (
