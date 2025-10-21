@@ -22,8 +22,8 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-20 bg-white px-4">
-      <div className="container mx-auto text-center">
+    <section className="py-20 bg-white">
+      <div className="container max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-12">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-12">
           {steps.map((step, index) => (

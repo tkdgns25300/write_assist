@@ -30,28 +30,30 @@ const features = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-20 px-4">
-      <div className="container mx-auto bg-gray-50 rounded-lg py-16">
-        <h2 className="text-4xl font-bold mb-12 text-center">Why Choose Write Assist?</h2>
-        <Card className="max-w-4xl mx-auto !p-12 bg-white">
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 text-left">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-start space-x-4">
-                <div className="flex-shrink-0">{feature.icon}</div>
-                <div>
-                  <h3 className="text-lg font-semibold">{feature.title}</h3>
-                  <p className="text-gray-600 mt-1">{feature.description}</p>
+    <section className="py-20">
+      <div className="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gray-50 rounded-lg py-16">
+          <h2 className="text-4xl font-bold mb-12 text-center">Why Choose Write Assist?</h2>
+          <div className="max-w-4xl mx-auto p-12">
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 text-left">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">{feature.icon}</div>
+                  <div>
+                    <h3 className="text-lg font-semibold">{feature.title}</h3>
+                    <p className="text-gray-600 mt-1">{feature.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </Card>
-        <div className="mt-12 text-center">
-          <Link href="/">
-            <Button className="px-8 py-3 text-lg">
-              Start Context Refinement Now!
-            </Button>
-          </Link>
+          <div className="mt-12 flex justify-center">
+            <Link href="/">
+              <Button className="px-8 py-3 text-lg">
+                Start Context Refinement Now!
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
