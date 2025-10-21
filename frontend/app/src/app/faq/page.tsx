@@ -2,6 +2,12 @@ import { getFaqs } from '@/lib/api';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import FaqList from '@/components/faq/FaqList';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions | Write Assist',
+  description: 'Find answers to common questions about Write Assist, including how to use the service, features, and free usage limits.',
+};
 
 export default async function FaqPage() {
   const faqs = await getFaqs();

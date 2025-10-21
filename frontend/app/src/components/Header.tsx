@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Italianno } from "next/font/google";
 
@@ -12,7 +14,7 @@ export default function Header() {
             <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
-                    <span className={`text-4xl font-bold text-gray-800 ${italianno.className}`}>Write Assist</span>
+                    <span className={`text-4xl text-gray-800 ${italianno.className}`}>Write Assist</span>
                 </Link>
 
                 {/* Navigation Links */}

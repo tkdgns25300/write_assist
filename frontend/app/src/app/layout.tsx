@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: "Write Assist",
-    description: "AI 기반 한국어 문맥 교정 서비스",
+    description: "AI-Powered Context Refinement Service",
 };
 
 export default function RootLayout({
