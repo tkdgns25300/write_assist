@@ -26,7 +26,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
           <Card key={index}>
             <div className="flex flex-col h-full">
               <h3 className="text-md font-semibold text-blue-600 mb-2">{`Option ${index + 1}`}</h3>
-              <p className="text-gray-700 flex-grow">{text}</p>
+              <p className="text-gray-700 flex-grow whitespace-pre-wrap">{text}</p>
               <div className="mt-4">
                 <Button onClick={() => handleCopy(text, index)}>
                   {copiedIndex === index ? 'Copied!' : 'Copy Text'}
