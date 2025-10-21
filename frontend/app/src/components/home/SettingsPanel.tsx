@@ -3,7 +3,7 @@
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Slider from "@/components/ui/Slider";
-import { Settings } from "@/app/page";
+import { Settings } from "@/components/home/HomeClient";
 import { PresetResponse, Tone } from "@/types/api";
 
 interface SettingsPanelProps {

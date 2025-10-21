@@ -1,5 +1,4 @@
 import { Zap, UserX, BrainCircuit, PenTool } from 'lucide-react';
-import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 

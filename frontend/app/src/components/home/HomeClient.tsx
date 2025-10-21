@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CorrectionForm from "@/components/home/CorrectionForm";
 import ResultDisplay from "@/components/home/ResultDisplay";
 import SettingsPanel from "@/components/home/SettingsPanel";
-import { getUsage, postCorrectText } from "@/lib/api";
+import { postCorrectText } from "@/lib/api";
 import {
     PresetResponse,
     TextCorrectionResponse,
@@ -35,7 +35,7 @@ export default function HomeClient({ initialPresets, initialUsage }: HomeClientP
         lengthType: "STANDARD",
         styleType: "CONCISE_CLEAR",
     });
-    const [presets, setPresets] = useState<PresetResponse[]>(initialPresets);
+    const [presets] = useState<PresetResponse[]>(initialPresets);
     const [result, setResult] = useState<TextCorrectionResponse | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [usage, setUsage] = useState<UsageResponse | null>(initialUsage);
@@ -90,9 +90,13 @@ export default function HomeClient({ initialPresets, initialUsage }: HomeClientP
                 setUsage(newUsage);
                 window.dispatchEvent(new CustomEvent('usageUpdated', { detail: newUsage }));
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error("Failed to correct text:", error);
-            setError(error.message || "An error occurred during text correction.");
+            if (error instanceof Error) {
+                setError(error.message);
+            } else {
+                setError("An unknown error occurred during text correction.");
+            }
         } finally {
             setIsLoading(false);
         }
@@ -115,7 +119,6 @@ export default function HomeClient({ initialPresets, initialUsage }: HomeClientP
                         setInputText={setInputText}
                         isLoading={isLoading}
                         onGenerate={handleGenerate}
-                        remainingUsage={usage?.remainingUsage}
                     />
                     {result && <ResultDisplay result={result} />}
                 </div>

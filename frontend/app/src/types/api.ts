@@ -64,15 +64,18 @@ export interface FaqResponse {
 }
 
 // 5. 공통 API 응답 래퍼
-interface ErrorDetail {
-  code: string;
-  field?: string;
-  rejectedValue?: any;
+export interface ErrorDetail {
+    code: string;
+    message: string;
+    errors?: {
+        field: string;
+        message: string;
+    }[];
 }
 
 export interface ApiResponse<T> {
-  success: boolean;
-  data: T;
-  message: string;
-  error?: ErrorDetail | null;
+    success: boolean;
+    data: T;
+    message: string | null;
+    error?: ErrorDetail | null;
 }

@@ -8,7 +8,6 @@ interface CorrectionFormProps {
     setInputText: (value: string) => void;
     isLoading: boolean;
     onGenerate: () => void;
-    remainingUsage?: number;
 }
 
 export default function CorrectionForm({
@@ -16,7 +15,6 @@ export default function CorrectionForm({
     setInputText,
     isLoading,
     onGenerate,
-    remainingUsage,
 }: CorrectionFormProps) {
     return (
         <div className="space-y-4">
