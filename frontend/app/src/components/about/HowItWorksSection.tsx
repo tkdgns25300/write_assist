@@ -24,14 +24,14 @@ export default function HowItWorksSection() {
   return (
     <section className="py-20 bg-white">
       <div className="container max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-12">How It Works</h2>
+        <h2 className="text-4xl font-semibold mb-12">How It Works</h2>
         <div className="grid md:grid-cols-3 gap-12">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="bg-blue-100 rounded-full p-4 mb-4">
                 {step.icon}
               </div>
-              <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+              <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
               <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
