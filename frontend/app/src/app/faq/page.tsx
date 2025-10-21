@@ -62,10 +62,10 @@ export default function FaqPage() {
         </div>
 
         {/* Contact Card */}
-        <Card className="mt-16 text-center bg-gray-50">
+        <Card className="mt-16 text-center bg-blue-50 p-8">
           <h2 className="text-2xl font-bold text-gray-900">Still have questions?</h2>
           <p className="mt-2 text-gray-600">Can't find the answer you're looking for? Feel free to reach out to our support team.</p>
-          <div className="mt-6">
+          <div className="mt-6 flex justify-center">
             <a href="mailto:tkdgns25300@gmail.com">
               <Button className="w-auto">
                 Contact Support
