@@ -1,5 +1,3 @@
-"use client";
-
 import { Edit3, Settings, Sparkles } from 'lucide-react';
 
 const steps = [
