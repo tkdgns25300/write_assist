@@ -13,10 +13,11 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextCorrectionResponse {
 
-    @Schema(description = "원본 텍스트", example = "회의 일정 조율하고 싶어요")
+    @Schema(description = "원본 텍스트 (줄바꿈, 들여쓰기 등 포맷팅 포함)", example = "안녕하세요.\n오늘 회의 하실래요?\n시간은 오후 2시입니다.")
     private String originalText;
 
-    @Schema(description = "AI가 생성한 교정된 텍스트 배열 (최대 3개, 중복 제거됨)", example = "[\"회의 일정을 조율하고자 합니다.\", \"회의 일정 조율을 요청드립니다.\"]")
+    @Schema(description = "AI가 생성한 교정된 텍스트 배열 (최대 3개, 중복 제거됨, 원본 포맷팅 유지)", 
+            example = "[\"안녕하세요.\\n오늘 회의하시겠습니까?\\n시간은 오후 2시입니다.\", \"안녕하세요.\\n오늘 회의를 진행하시겠습니까?\\n시간은 오후 2시입니다.\"]")
     private List<String> correctedTexts;
 
     @Schema(description = "오늘 남은 사용 가능 횟수 (0~30)", example = "29")

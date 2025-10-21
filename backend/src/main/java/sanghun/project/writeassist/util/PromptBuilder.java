@@ -61,23 +61,40 @@ public class PromptBuilder {
         // 4. 출력 규칙
         prompt.append("=== OUTPUT RULES ===\n");
         prompt.append("✓ Output ONLY the corrected text\n");
+        prompt.append("✓ PRESERVE original formatting including:\n");
+        prompt.append("  - Line breaks (\\n) and paragraph breaks\n");
+        prompt.append("  - Indentation and spacing\n");
         prompt.append("✗ Do NOT include any explanations, notes, or meta-commentary\n");
         prompt.append("✗ Do NOT add phrases like 'Here is the corrected version:' or 'Corrected text:'\n");
         prompt.append("✗ Do NOT use quotation marks or formatting around the output\n");
         prompt.append("✗ Do NOT add numbering like '1.', '2.', or 'Version 1:'\n");
-        prompt.append("✓ Just provide the final corrected text directly\n\n");
+        prompt.append("✓ Just provide the final corrected text directly with preserved formatting\n\n");
 
         // 5. 예시
         prompt.append("=== EXAMPLE ===\n");
-        prompt.append("Input: \"오늘 회의 하실래요?\"\n\n");
+        prompt.append("Input:\n");
+        prompt.append("안녕하세요.\n");
+        prompt.append("오늘 회의 하실래요?\n");
+        prompt.append("시간은 오후 2시입니다.\n\n");
         prompt.append("Correct Output:\n");
-        prompt.append("오늘 회의하시겠습니까?\n\n");
+        prompt.append("안녕하세요.\n");
+        prompt.append("오늘 회의하시겠습니까?\n");
+        prompt.append("시간은 오후 2시입니다.\n\n");
         prompt.append("Wrong Outputs:\n");
-        prompt.append("Version 1: 오늘 회의하시겠습니까? ✗\n");
-        prompt.append("\"오늘 회의하시겠습니까?\" ✗\n");
-        prompt.append("Here is the correction: 오늘 회의하시겠습니까? ✗\n\n");
+        prompt.append("안녕하세요. 오늘 회의하시겠습니까? 시간은 오후 2시입니다. ✗ (줄바꿈 제거됨)\n");
+        prompt.append("Version 1: 안녕하세요... ✗ (불필요한 설명 추가)\n");
+        prompt.append("\"안녕하세요...\" ✗ (따옴표 추가)\n\n");
 
-        // 6. 원본 텍스트
+        // 6. 포맷팅 강조
+        prompt.append("=== FORMATTING PRESERVATION ===\n");
+        prompt.append("IMPORTANT: Maintain the exact same formatting structure as the input:\n");
+        prompt.append("- If input has line breaks, output must have line breaks\n");
+        prompt.append("- If input has indentation, output must have indentation\n");
+        prompt.append("- If input has bullet points, output must have bullet points\n");
+        prompt.append("- If input has numbered lists, output must have numbered lists\n");
+        prompt.append("- Preserve all spacing, paragraph breaks, and structural elements\n\n");
+
+        // 7. 원본 텍스트
         prompt.append("========================================\n");
         prompt.append("ORIGINAL TEXT TO CORRECT:\n");
         prompt.append("========================================\n\n");
