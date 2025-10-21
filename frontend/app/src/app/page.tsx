@@ -80,7 +80,6 @@ export default function Home() {
                 text: inputText,
                 ...settings,
             });
-            console.log("[Home Page] Received from postCorrectText:", response); // For debugging
             setResult(response);
             if (usage) {
                 const newUsage = {

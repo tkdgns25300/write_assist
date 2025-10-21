@@ -34,7 +34,6 @@ export default function Footer() {
             const customEvent = event as CustomEvent<UsageResponse>;
             const newUsage = customEvent.detail;
             if (newUsage) {
-                console.log("[Footer] Received usage data from event:", newUsage); // For debugging
                 setUsage(newUsage);
             }
         };
