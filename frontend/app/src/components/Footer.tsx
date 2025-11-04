@@ -37,11 +37,11 @@ export default function Footer() {
                 setUsage(newUsage);
             }
         };
-        
-        window.addEventListener('usageUpdated', handleUsageUpdate);
+
+        window.addEventListener("usageUpdated", handleUsageUpdate);
 
         return () => {
-            window.removeEventListener('usageUpdated', handleUsageUpdate);
+            window.removeEventListener("usageUpdated", handleUsageUpdate);
         };
     }, []);
 
@@ -64,7 +64,16 @@ export default function Footer() {
                         <Link href="/" className="flex items-center mb-2">
                             <span className={`text-4xl text-gray-800 ${italianno.className}`}>Write Assist</span>
                         </Link>
-                        <p className="text-sm">© {new Date().getFullYear()} Write Assist. All rights reserved.</p>
+                        <p className="text-sm mb-2">© {new Date().getFullYear()} Write Assist. All rights reserved.</p>
+                        <div className="flex items-center space-x-4 text-sm">
+                            <Link href="/privacy" className="text-gray-600 hover:text-blue-600 transition-colors">
+                                Privacy Policy
+                            </Link>
+                            <span className="text-gray-400">|</span>
+                            <Link href="/terms" className="text-gray-600 hover:text-blue-600 transition-colors">
+                                Terms of Service
+                            </Link>
+                        </div>
                     </div>
 
                     {/* Right Section: Social Links */}
