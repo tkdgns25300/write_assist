@@ -35,7 +35,8 @@ export default function FeatureSection() {
                         Unlock the Power of Contextual Writing
                     </p>
                     <p className="mt-5 max-w-2xl mx-auto text-xl text-gray-500">
-                        Write Assist is more than just a proofreader. It's your AI writing partner that understands context, purpose, and audience to help you craft the perfect message every time.
+                        Write Assist is more than just a proofreader. It&apos;s your AI writing partner that understands
+                        context, purpose, and audience to help you craft the perfect message every time.
                     </p>
                 </div>
 

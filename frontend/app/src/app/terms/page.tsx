@@ -52,7 +52,7 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Disclaimer</h2>
                         <p>
-                            The materials on Write Assist are provided on an "as is" basis. Write Assist makes no
+                            The materials on Write Assist are provided on an &quot;as is&quot; basis. Write Assist makes no
                             warranties, expressed or implied, and hereby disclaims and negates all other warranties.
                         </p>
                         <p>

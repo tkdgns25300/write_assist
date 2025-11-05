@@ -2,8 +2,6 @@ import HeroSection from '@/components/about/HeroSection';
 import FeatureSection from '@/components/about/FeatureSection';
 import FinalCtaSection from '@/components/about/FinalCtaSection'; // Import the new component
 import { Metadata } from 'next';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'About | Write Assist',
