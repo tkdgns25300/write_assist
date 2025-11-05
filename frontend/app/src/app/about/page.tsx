@@ -1,5 +1,5 @@
 import HeroSection from '@/components/about/HeroSection';
-import FeatureSection from '@/components/home/FeatureSection';
+import FeatureSection from '@/components/about/FeatureSection';
 import FinalCtaSection from '@/components/about/FinalCtaSection'; // Import the new component
 import { Metadata } from 'next';
 import Link from 'next/link';

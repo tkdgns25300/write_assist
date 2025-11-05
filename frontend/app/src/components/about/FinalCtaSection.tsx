@@ -11,9 +11,12 @@ export default function FinalCtaSection() {
         <p className="mt-4 text-lg text-blue-100">
           Experience the power of context-aware AI. Get started for free, no registration required.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <Link href="/">
-            <Button className="w-auto bg-white px-8 py-3 text-lg font-semibold text-blue-600 shadow-md transition hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+            <Button
+              variant="secondary"
+              className="w-auto px-8 py-3 text-lg font-semibold !text-blue-600 !border-blue-600 shadow-md transition hover:!bg-blue-600 hover:!text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
               Start Context Refinement Now!
             </Button>
           </Link>
