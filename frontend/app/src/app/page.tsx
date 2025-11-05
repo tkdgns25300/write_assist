@@ -3,8 +3,8 @@ import HomeClient from "@/components/home/HomeClient";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Write Assist | AI-Powered Context Refinement Service",
-    description: "Instantly generate perfect text tailored to your specific tone and purpose. Shorten your writing time with our AI, no login required.",
+    title: "AI Text Refiner & Paraphrasing Tool | Write Assist",
+    description: "Improve your writing instantly with Write Assist, an AI-powered text refiner and paraphrasing tool. Adjust tone, style, and purpose for free without registration.",
 };
 
 export default async function Home() {

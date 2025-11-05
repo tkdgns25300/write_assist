@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | Write Assist",
+    description: "Read the official Privacy Policy for Write Assist. Understand how we collect, use, and protect your data when you use our AI text refinement service.",
+    robots: "noindex, follow",
+};
+
 export default function PrivacyPage() {
     return (
         <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">

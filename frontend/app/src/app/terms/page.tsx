@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms of Service | Write Assist",
+    description: "Review the official Terms of Service for Write Assist. By using our service, you agree to these terms.",
+    robots: "noindex, follow",
+};
+
 export default function TermsPage() {
     return (
         <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
