@@ -14,6 +14,7 @@ import {
     LengthType,
     StyleType,
 } from "@/types/api";
+// import FeatureSection from "@/components/home/FeatureSection"; // This will be removed.
 
 export interface Settings {
     tone: Tone;
@@ -131,6 +132,7 @@ export default function HomeClient({ initialPresets, initialUsage }: HomeClientP
                     />
                 </div>
             </div>
+            
         </div>
     );
 }

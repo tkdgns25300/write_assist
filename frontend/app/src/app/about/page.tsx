@@ -1,7 +1,9 @@
 import HeroSection from '@/components/about/HeroSection';
-import HowItWorksSection from '@/components/about/HowItWorksSection';
-import WhyChooseUsSection from '@/components/about/WhyChooseUsSection';
+import FeatureSection from '@/components/home/FeatureSection';
+import FinalCtaSection from '@/components/about/FinalCtaSection'; // Import the new component
 import { Metadata } from 'next';
+import Link from 'next/link';
+import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'About | Write Assist',
@@ -12,8 +14,8 @@ export default function AboutPage() {
   return (
     <div className="bg-white text-gray-800">
       <HeroSection />
-      <HowItWorksSection />
-      <WhyChooseUsSection />
+      <FeatureSection />
+      <FinalCtaSection />
     </div>
   );
 }
